@@ -1,3 +1,7 @@
+(load "~/.emacs.d/my-loadpackages.el")
+(add-hook 'after-init-hook '(lambda ()
+			      (load "~/.emacs.d/my-noexternals.el")
+			      ))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -14,7 +18,4 @@
  ;; If there is more than one, they won't work right.
  )
 
-(load "~/.emacs.d/my-loadpackages.el")
-(add-hook 'after-init-hook '(lambda ()
-			      (load "~/.emacs.d/my-noexternals.el")
-			      ))
+(load "~/.emacs.d/my-noexternals.el")
