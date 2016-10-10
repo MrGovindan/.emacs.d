@@ -59,7 +59,17 @@
 (require 'evil-smartparens)
 (add-hook'smartparens-enabled-hook #'evil-smartparens-mode)
 
+(require 'helm)
 (require 'helm-config)
 (helm-mode 1)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+
+(setq helm-split-window-in-side-p t
+      helm-move-to-line-cycle-in-source t
+      helm-ff-search-library-in-sexp t
+      helm-scroll-amount 8
+      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)

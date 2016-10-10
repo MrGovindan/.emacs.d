@@ -7,4 +7,3 @@
 
 ;; Set C-s to save
 (global-set-key (kbd "C-s") 'save-buffer)
-
