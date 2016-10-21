@@ -17,11 +17,13 @@
     flycheck
     company
     rtags
+    flycheck-google-cpplint
     cmake-ide
     evil-surround
     smartparens
     evil-smartparens
     helm
+    google-c-style
   ) "a list of packages to ensure are installed at launch.")
 
 ; method to check if all packages are installed

@@ -15,6 +15,10 @@
 (require 'evil)
 (evil-mode 1)
 
+;;(require 'google-c-style)
+;;(add-hook 'c-mode-common-hook 'google-c-style)
+;;(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 (require 'rtags)
 (setq rtags-autostart-diagnostics t)
 (rtags-diagnostics)
@@ -43,6 +47,18 @@
 ;; c-mode-common-hook is also called by c++ mode
 (add-hook 'c-mode-common-hook #'my-flycheck-rtags-setup)
 
+;;(require 'flycheck-google-cpplint)
+;;(eval-after-load 'flycheck
+  ;;'(progn
+     ;;(require 'flycheck-google-cpplint)
+     ;;(flycheck-add-next-checker 'rtags
+				;;'c/c++-googlelint 'append)))
+
+;;(custom-set-variables
+ ;;'(flycheck-c/c++-googlelint-executable "/usr/local/bin/cpplint.py")
+ ;;'(flycheck-googlelint-verbose "3")
+ ;;'(flycheck-googlelint-root "/home/jesse/Documents/GamesGalore/src"))
+
 (cmake-ide-setup)
 
 (require 'color-theme-sanityinc-tomorrow)
@@ -52,9 +68,10 @@
 (global-evil-surround-mode 1)
 
 (require 'smartparens-config)
-(add-hook 'c-mode-hook #'smartparens-mode)
+;(add-hook 'c-mode-hook #'smartparens-mode)
 (add-hook 'c++-mode-hook #'smartparens-mode)
-(add-hook 'emacs-lisp-mode #'smartparens-mode)
+(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+(add-hook 'python-mode-hook #'smartparens-mode)
 
 (require 'evil-smartparens)
 (add-hook'smartparens-enabled-hook #'evil-smartparens-mode)
@@ -73,3 +90,4 @@
       helm-scroll-amount 8
       helm-ff-file-name-history-use-recentf t
       helm-echo-input-in-header-line t)
+
